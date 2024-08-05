@@ -30,14 +30,12 @@ void printArray(int arr[], int size) {
 
 int main() {
     int arr[] = {12, 11, 13, 5, 6, 7};
-    int arr_size = sizeof(arr) / sizeof(arr[0]);
-    
-    printArray(arr, arr_size);
+    printArray(arr, 6);
 
     clock_t start = clock();
-    mergeSort(arr, 0, arr_size - 1);
+    mergeSort(arr, 0, 6 - 1);
     printf("Time taken: %f seconds\n", (double)(clock() - start) / CLOCKS_PER_SEC);
 
-    printArray(arr, arr_size);
+    printArray(arr,6);
     return 0;
 }
