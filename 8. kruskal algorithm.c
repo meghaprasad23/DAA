@@ -5,18 +5,17 @@ typedef struct {
     int u, v, weight;
 } Edge;
 
-int parent[100], rank[100];
+int parent[100];
 
 int find(int i) {
-    return parent[i] == i ? i : (parent[i] = find(parent[i]));
+    while (i != parent[i])
+        i = parent[i];
+    return i;
 }
 
 void unionSets(int u, int v) {
     int rootU = find(u), rootV = find(v);
-    if (rootU != rootV) {
-        if (rank[rootU] > rank[rootV]) parent[rootV] = rootU;
-        else parent[rootU] = rootV, rank[rootU] += (rank[rootU] == rank[rootV]);
-    }
+    parent[rootU] = rootV;
 }
 
 int compare(const void *a, const void *b) {
@@ -27,7 +26,8 @@ void kruskal(Edge edges[], int numEdges, int numVertices) {
     Edge mst[100];
     int mstSize = 0, totalCost = 0;
 
-    for (int i = 0; i < numVertices; i++) parent[i] = i, rank[i] = 0;
+    for (int i = 0; i < numVertices; i++) 
+        parent[i] = i;
 
     qsort(edges, numEdges, sizeof(Edge), compare);
 
