@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <limits.h> // For INT_MAX
-
 #define MAX_NODES 5
 
 // Adjacency matrix representing the directed weighted graph
