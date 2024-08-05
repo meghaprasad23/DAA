@@ -21,7 +21,7 @@ int main() {
     printf("Edge : Weight\n");
 
     while (no_edge < V - 1) {
-        int min = INF, x = 0, y = 0;
+        int min = INF, x = -1, y = -1;
 
         for (int i = 0; i < V; i++) {
             if (selected[i]) {
@@ -34,7 +34,7 @@ int main() {
                 }
             }
         }
-        printf("%d - %d : %d\n", x, y, G[x][y]);
+        printf("%d - %d : %d\n", x+1, y+1, G[x][y]);
         total_cost += G[x][y];  // Add the weight of the selected edge to total cost
         selected[y] = 1;
         no_edge++;
