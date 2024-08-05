@@ -13,7 +13,7 @@ int graph[MAX_NODES][MAX_NODES] = {
 
 void DFS(int node, bool visited[]) {
     visited[node] = true;
-    printf("%d ", node);
+    printf("%d ", node + 1); // Print node as 1-indexed
 
     for (int i = 0; i < MAX_NODES; i++) {
         if (graph[node][i] != 0 && !visited[i]) {
@@ -26,7 +26,7 @@ int main() {
     int source = 0; // Source node (starting node)
     bool visited[MAX_NODES] = {false}; // Initialize all nodes as not visited
 
-    printf("Nodes reachable from node %d are: ", source);
+    printf("Nodes reachable from node %d are: ", source + 1);
     DFS(source, visited);
     printf("\n");
 
